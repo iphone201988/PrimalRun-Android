@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background (grey) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <!-- Set the corners radius -->
+            <corners android:radius="@dimen/_8sdp" />
+            <!-- Set background color to grey -->
+            <solid android:color="@color/app_gray" />
+        </shape>
+    </item>
+
+    <!-- Main progress (orange) -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <!-- Set the corners radius -->
+                <corners android:radius="@dimen/_8sdp" />
+                <!-- Set progress color to orange -->
+                <solid android:color="@color/colorAccent" />
+            </shape>
+
+        </clip>
+    </item>
+</layer-list>

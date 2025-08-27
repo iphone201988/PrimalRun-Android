@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.primal.runs.ui.auth.gender.SelectGenderVM" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:background="@color/black">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            tools:context=".ui.auth.gender.SelectGenderFragment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMain"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_280sdp"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:scaleType="fitXY"
+                android:onClick="@{v ->vm.onClick(v)}"
+                android:src="@drawable/unslect_man_zander"
+                app:layout_constraintEnd_toStartOf="@+id/ivFemale"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFemale"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_280sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:scaleType="fitXY"
+                android:onClick="@{v ->vm.onClick(v)}"
+                android:src="@drawable/iv_female_gender"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivMain"
+                app:layout_constraintTop_toTopOf="@+id/ivMain" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSelectGender"
+                style="@style/TextView.Heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:gravity="center"
+                android:text="@string/select_your_gender"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_24ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivFemale" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/desGender"
+                style="@style/TextView.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:gravity="center"
+                android:text="@string/des_gender"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="@+id/ivFemale"
+                app:layout_constraintStart_toStartOf="@+id/ivMain"
+                app:layout_constraintTop_toBottomOf="@+id/tvSelectGender" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNext"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/corner_radius_10"
+                android:gravity="center"
+                android:onClick="@{v ->vm.onClick(v)}"
+                android:text="@string/next"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="@+id/desGender"
+                app:layout_constraintStart_toStartOf="@+id/desGender"
+                app:layout_constraintTop_toBottomOf="@+id/desGender" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

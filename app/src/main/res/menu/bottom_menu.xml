@@ -1,0 +1,24 @@
+<!-- bottom_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/iv_plans"
+        android:title="" />
+    <item
+        android:id="@+id/run"
+        android:icon="@drawable/run"
+        android:title="" />
+    <item
+        android:id="@+id/activities"
+        android:icon="@drawable/activities"
+        android:title="" />
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/iv_new_setting"
+        android:title="" />
+
+
+</menu>
+

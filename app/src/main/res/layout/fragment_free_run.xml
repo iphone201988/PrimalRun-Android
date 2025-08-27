@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.primal.runs.ui.dashboard.free_run.FreeRunVm" />
+
+        <variable
+            name="bean"
+            type="String" />
+
+    </data>
+
+    <!--<androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/bg_home"
+        android:overScrollMode="never"
+        >-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_home"
+        >
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_18sdp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivUserImage"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:padding="@dimen/_2sdp"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/iv_dummy"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    app:strokeWidth="2dp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVersion"
+                    style="@style/TextView.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivUserImage"
+                    app:layout_constraintTop_toTopOf="@+id/ivUserImage" />
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHeading"
+                    style="@style/TextView.Heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:gravity="center"
+                    android:text="@string/free_run"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_24ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivUserImage" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/consGraph"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:background="@drawable/corner_radius_free"
+                android:backgroundTint="@color/black"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toStartOf="@+id/consGraphDis"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeading">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Pursuer pace"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/consGraph" />
+
+
+                <com.primal.runs.utils.RunProgressBar
+                    android:id="@+id/arcProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/consGraph"
+                    app:layout_constraintEnd_toEndOf="@+id/consGraph"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/consGraph"
+                    app:layout_constraintTop_toTopOf="@+id/consGraph"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/progressValue"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="7:30"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/arcProgress"
+                    app:layout_constraintEnd_toEndOf="@+id/arcProgress"
+                    app:layout_constraintStart_toStartOf="@+id/arcProgress"
+                    app:layout_constraintTop_toTopOf="@+id/arcProgress" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/consGraphDis"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:background="@drawable/corner_radius_free"
+                android:backgroundTint="@color/black"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginStart="@dimen/_2sdp"
+                app:layout_constraintStart_toEndOf="@+id/consGraph"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeading">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Distance"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/consGraphDis" />
+
+                <com.primal.runs.utils.DistanceProgressBar
+                    android:id="@+id/arcDisProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/consGraphDis"
+                    app:layout_constraintEnd_toEndOf="@+id/consGraphDis"
+                    app:layout_constraintStart_toStartOf="@+id/consGraphDis"
+                    app:layout_constraintTop_toTopOf="@+id/consGraphDis" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/arcDistanceValue"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="0.0"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/arcDisProgress"
+                    app:layout_constraintEnd_toEndOf="@+id/arcDisProgress"
+                    app:layout_constraintStart_toStartOf="@+id/arcDisProgress"
+                    app:layout_constraintTop_toTopOf="@+id/arcDisProgress" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/consGraph"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/consGraph"
+                   >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/consPur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/corner_radius_free"
+                        android:backgroundTint="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvPre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Pursuer"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/consPur" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvPursuer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPre"
+                            tools:listitem="@layout/item_free_run" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/consStages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/corner_radius_free"
+                        android:backgroundTint="@color/black"
+                        android:paddingBottom="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/consPur">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvStage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Stage"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvStages"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@+id/tvStage"
+                            tools:listitem="@layout/item_free_run_stages" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/consAds"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:visibility="gone"
+                        android:background="@drawable/corner_radius_free"
+                        android:backgroundTint="@color/transparent"
+                        app:layout_constraintTop_toBottomOf="@+id/consStages">
+
+                        <com.primal.runs.utils.AdManager
+                            android:id="@+id/adManager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvStartRun"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:text="@string/start_run"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:onClick="@{v ->vm.onClick(v)}"
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:background="@drawable/corner_radius_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        style="@style/TextView.FuturaBold"
+                        app:layout_constraintTop_toBottomOf="@+id/consAds"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</androidx.core.widget.NestedScrollView>-->
+</layout>

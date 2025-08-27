@@ -1,0 +1,171 @@
+<resources>
+    <string name="app_name">Primal Run</string>
+
+    <string name="session_expired">session_expired</string>
+    <string name="alert">Alert</string>
+    <string name="post_detail">Post Detail</string>
+    <string name="please_try_again">Please try again</string>
+    <string name="plz_wait">Plz wait</string>
+    <string name="error_found">Error Found</string>
+    <string name="forgot_password"><u>Forgot Password ?</u></string>
+    <string name="or_login"><u>or login with</u></string>
+    <string name="hello_blank_fragment">Home Seeker fragment</string>
+    <string name="fav_fragment">Fav  fragment</string>
+    <string name="title_activity_job_deatils">JobDeatilsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="tv1">SQR code will get generated for you and you are good to accept payments from customers</string>
+    <string name="third_step">send audio and notes and in return get positive notes from customer</string>
+    <string name="otp_text">Please enter the 6-digit code sent to your phone number +91XXXXXX7890 for verification.</string>
+    <string name="sign_up"><u>SIGN UP</u></string>
+    <string name="gamify_your_nruns">Gamify Your\nruns</string>
+    <string name="on_boarding">Experience the Wild\nChase</string>
+    <string name="on_boarding3">Unleash Your Inner\nBeast</string>
+    <string name="login">WELCOME TO\nPRIMAL RUN</string>
+    <string name="turn_your_training_into_an_epic_game_nlevel_up_and_win">Turn your training into an epic game.\nLevel up and win!</string>
+    <string name="des_onboard">Feel the adrenaline as you outrun the\nwild. It’s a race for survival</string>
+    <string name="des_plan">The elephant may be slow, but don’t be fooled—it picks up speed fast! As you progress, feel the ground shake with every step. Outrun the giant as it accelerates!</string>
+    <string name="des_onboard3">Push your limits, embrace the wild,\nand dominate the chase</string>
+    <string name="let_s_get_started">LET’S GET STARTED</string>
+    <string name="terms_of_service_and_privacy_policy">Terms of Service and Privacy Policy</string>
+    <string name="login_with_google">Login with google</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="term">Privacy Policy\n
+Effective Date: [Insert Date]
+Primal Run ("the App") values your privacy. This Privacy Policy outlines how we collect, use, and protect your data when you use the App.
+1. Information We Collect
+Google Authentication: When you sign in with Google, we collect your name and email address for account creation and login.
+Location Data: GPS data is collected during your runs to provide accurate performance tracking.\n\n
+2. How We Use Your Information
+For App Features: GPS data is used solely to improve run tracking and provide accurate metrics like distance, pace, and time.
+Marketing: Your email address may be used to send updates, promotions, or other marketing messages. You can opt out at any time.
+3. Sharing Your Information\n\n
+Advertising: The App uses AdMob to display advertisements. AdMob may collect certain data as outlined in their privacy policy.
+Third-Party Services: Data may be shared with service providers solely to operate and improve the App. These providers are required to protect your data.
+4. Data Security
+We implement industry-standard measures such as encryption to protect your data. However, no system is entirely secure, and we cannot guarantee absolute security. Users are advised to avoid sharing sensitive information unnecessarily.
+5. User Rights
+At this time, the App does not allow users to request access, modification, or deletion of their personal data. Future updates may include such features.
+</string>
+    <string name="got_it">got it</string>
+    <string name="select_your_gender">Select your\ngender</string>
+    <string name="des_gender">This helps us personalize your experience\nand challenges</string>
+    <string name="enable_gps_for_accurate_tracking">Enable GPS for\nAccurate Tracking</string>
+    <string name="des_gps">Enable GPS to track your run and boost\nyour performance</string>
+    <string name="sure_thing">SURE THING</string>
+    <string name="not_now">Not now</string>
+    <string name="heading_guide1">Discover a New\nTraining Experience</string>
+    <string name="heading_pro">Go Pro &amp; Push\nYour Limits</string>
+    <string name="des_guide1">Get ready to level up your runs with exciting new challenges!</string>
+    <string name="des_pro"><b>Unlock all stages</b> and <b>animals</b> in both Primal Plans and Free Run modes, and enjoy an <b>ad-free experience</b></string>
+    <string name="des_guide2">Feel free to listen to your favorite\nmusic while you run</string>
+    <string name="des_guide4">Animal sound effects change in real\ntime as your pace changes</string>
+    <string name="des_guide5">See yourself outrun fierce animals in\na 2D platform-style race</string>
+    <string name="des_guide6">Choose the perfect challenge, from\nbeginner to advanced mode</string>
+    <string name="des_guide7">Complete plans and unlock exclusive\nrewards</string>
+    <string name="des_guide3">Feel the thrill as animals close in with\nevery step</string>
+    <string name="heading_guide2">Put Your Earphones\nOn and Get Ready</string>
+    <string name="heading_guide4">Immersive Real-Time\nAudio Based on Pace</string>
+    <string name="heading_guide5">Transform Your Run\ninto a Mobile Game</string>
+    <string name="heading_guide6">Up to 10 Different\nTraining Plans</string>
+    <string name="heading_guide7">Unlock All the\nAchievements</string>
+    <string name="heading_guide3">Hear the Animals\nChasing You</string>
+    <string name="primal_plans">Primal plans</string>
+    <string name="activities">ACTIVITIES</string>
+    <string name="distance">Distance</string>
+    <string name="lenght">Lenght</string>
+    <string name="time">Time</string>
+    <string name="this_month">This month</string>
+    <string name="done">Done</string>
+    <string name="settings">SETTINGS</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="unit_of_measure">Unit of measure</string>
+    <string name="voice_over">Voice over</string>
+    <string name="audio_effects">Audio effects</string>
+    <string name="view"><u>View</u></string>
+    <string name="name_surname">name surname</string>
+    <string name="italy_europe">Italy, Europe</string>
+    <string name="achievements">achievements</string>
+    <string name="logout">Logout</string>
+    <string name="go_pro">GO PRO</string>
+    <string name="restore_subscription">RESTORE SUBSCRIPTION</string>
+    <string name="restore_pro">RESTORE PRO</string>
+    <string name="free_run">FREE RUN</string>
+    <string name="start_run">START RUN</string>
+    <string name="go_pro_amp_skip_ads"><![CDATA[Go Pro & Skip Ads]]></string>
+    <string name="des_pro_dialog">Enjoy an uninterrupted experience! Subscribe to the Pro plan and remove ads before every run</string>
+    <string name="maybe_later">maybe later</string>
+    <string name="easy_run">EASY RUN</string>
+    <string name="beginner_1_1">Beginner 1-1</string>
+    <string name="des_detals">An easy run is a low-intensity workout meant to be comfortable and sustainable. The pace is relaxed, allowing you to hold a conversation without much effort.\n\nIt’s a recovery run designed to improve endurance, promote blood flow, and reduce the risk of injury while giving your muscles time to recover from more intense sessions.</string>
+    <string name="how_does_it_works">HOW DOES IT\nWORKS?</string>
+    <string name="get_ready">GET READY</string>
+    <string name="run_completed">RUN COMPLETED</string>
+    <string name="average_pace">Average pace</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="revive">REVIVE</string>
+    <string name="restart">Restart</string>
+    <string name="are_you_sure_to_discard_the_recording_replay">Are you sure to discard the recording replay ?</string>
+    <string name="yes">Yes</string>
+    <string name="load_more">Load More</string>
+    <string name="continue_">CONTINUE</string>
+    <string name="do_you_really_want_to_give_up">Do you really want to give up?</string>
+    <string name="do_you_really_want_to_end_your_run">Do you really want to end your run?</string>
+    <string name="no">No</string>
+    <string name="resume">resume</string>
+    <string name="pro_membership">Pro Membership</string>
+    <string name="location_access">📍 Location Access</string>
+    <string name="camera_and_microphone_access">📷 Camera and Microphone Access</string>
+    <string name="photos_and_videos_access">🖼️ Photos and Videos Access</string>
+    <string name="notifications">🔔 Notifications</string>
+    <string name="exit_app">Exit App</string>
+    <string name="let_s_set_thigns_up">LET\'S SET THINGS UP</string> <!-- LET\'S SET THIGNS UP-->
+    <string name="track_your_route_distance_and_pace_in_real_time">Track your route, distance,\nand pace in real-time.</string>
+    <string name="run_pause">Run Pause</string>
+    <string name="finish_run">Finish run</string>
+</resources>

@@ -1,0 +1,73 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/common_navigation"
+    tools:ignore="InvalidNavigation"
+    app:startDestination="@id/achievementsFragment">
+
+    <action
+        android:id="@+id/navigateToDetailsFragment"
+        app:destination="@id/fragmentDetails" />
+
+
+    <action
+        android:id="@+id/navigateToPolicyFragment"
+        app:destination="@id/fragmentPolicy" />
+
+    <action
+        android:id="@+id/navigateToProfileFragment"
+        app:destination="@id/fragmentProfile" />
+
+    <action
+        android:id="@+id/navigateToProFragment"
+        app:destination="@id/fragmentPro" />
+
+    <action
+        android:id="@+id/navigateToPlanDetailsFragment"
+        app:destination="@id/fragmentPlanDetails" />
+
+    <action
+        android:id="@+id/navigateToStartRun"
+        app:destination="@id/fragmentStartRun" />
+
+    <fragment
+        android:id="@+id/fragmentDetails"
+        android:name="com.primal.runs.ui.dashboard.activities.ActivitiesDetailsFragment"
+        tools:layout="@layout/fragment_activities_details" />
+
+
+    <fragment
+        android:id="@+id/fragmentPolicy"
+        android:name="com.primal.runs.ui.auth.policy.PolicyFragment"
+        tools:layout="@layout/fragment_policy" />
+
+    <fragment
+        android:id="@+id/fragmentProfile"
+        android:name="com.primal.runs.ui.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_fragmentProfile_to_achievementsFragment"
+            app:destination="@id/achievementsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentPro"
+        android:name="com.primal.runs.ui.go_pro.GoProFragment"
+        tools:layout="@layout/fragment_go_pro" />
+
+    <fragment
+        android:id="@+id/fragmentPlanDetails"
+        android:name="com.primal.runs.ui.dashboard.home_details.HomePageDetailsFragment"
+        tools:layout="@layout/fragment_home_page_details" />
+
+    <fragment
+        android:id="@+id/fragmentStartRun"
+        android:name="com.primal.runs.ui.dashboard.start_run.StartRunFragment"
+        tools:layout="@layout/fragment_start_run" />
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.primal.runs.ui.profile.AchievementsFragment"
+        android:label="AchievementsFragment" />
+
+
+</navigation>

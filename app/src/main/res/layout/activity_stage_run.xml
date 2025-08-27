@@ -1,0 +1,1489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.primal.runs.ui.dashboard.start_run.StartRunVM" />
+
+        <variable
+            name="bean"
+            type="com.primal.runs.data.model.FreeRunModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.dashboard.start_run.running.StageRunActivity">
+
+        <!--GetReady  -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consGetReady"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/bg_overlay" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeading"
+                style="@style/TextView.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/get_ready"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_26ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDownTimer"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:text="THE RUN IS STARTING IN 10"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeading" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--time top/pause  -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consTopTimeVisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_20sdp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEndTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.80" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStartTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.20" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLife1"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:src="@drawable/baseline_favorite_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPause"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivPause" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLife2"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/baseline_favorite_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivLife1"
+                app:layout_constraintEnd_toStartOf="@+id/ivLife3"
+                app:layout_constraintStart_toEndOf="@+id/ivLife1"
+                app:layout_constraintTop_toTopOf="@+id/ivLife1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLife3"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/baseline_favorite_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivLife2"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineStartTop"
+                app:layout_constraintStart_toEndOf="@+id/ivLife2"
+                app:layout_constraintTop_toTopOf="@+id/ivLife2" />
+
+
+            <View
+                android:id="@+id/view1Top"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvTime"
+                app:layout_constraintStart_toStartOf="@id/guidelineStartTop"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTime"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Time"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view2Top"
+                app:layout_constraintStart_toEndOf="@+id/view1Top"
+                app:layout_constraintTop_toTopOf="@+id/view1Top" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTimeValue"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="00:00:00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvTime"
+                app:layout_constraintStart_toStartOf="@+id/tvTime"
+                app:layout_constraintTop_toBottomOf="@+id/tvTime"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view2Top"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvDistanceTop"
+                app:layout_constraintStart_toEndOf="@+id/tvTime"
+                app:layout_constraintTop_toTopOf="@+id/view1Top" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistanceTop"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/distance"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view3Top"
+                app:layout_constraintStart_toEndOf="@+id/view2Top"
+                app:layout_constraintTop_toTopOf="@+id/view2Top" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistanceValueTop"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="0.00 km"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDistanceTop"
+                app:layout_constraintStart_toStartOf="@+id/tvDistanceTop"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistanceTop"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view3Top"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvPace"
+                app:layout_constraintStart_toEndOf="@+id/tvDistanceTop"
+                app:layout_constraintTop_toTopOf="@+id/view2Top" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPace"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Pace"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view4Top"
+                app:layout_constraintStart_toEndOf="@+id/view3Top"
+                app:layout_constraintTop_toTopOf="@+id/view3Top" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPaceValue"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="0.00/km"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvPace"
+                app:layout_constraintStart_toStartOf="@+id/tvPace"
+                app:layout_constraintTop_toBottomOf="@+id/tvPace"
+                app:textAllCaps="true" />
+
+            <View
+                android:id="@+id/view4Top"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndTop"
+                app:layout_constraintStart_toEndOf="@+id/tvPace"
+                app:layout_constraintTop_toTopOf="@+id/view3Top" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ivPause"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@drawable/login_bg"
+                android:onClick="@{v ->vm.onClick(v)}"
+                android:paddingHorizontal="@dimen/_18sdp"
+                android:paddingVertical="@dimen/_6sdp"
+                android:text="Pause"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPaceValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvPace"
+                app:textAllCaps="true" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--run completed -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consPauseAndCompleted"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_overlay"
+            android:visibility="gone"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRunCompleted"
+                style="@style/TextView.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_80sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="STAGE 1-1 COMPLETED"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_26ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/consRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/tvRunCompleted">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/run_point1"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:src="@drawable/baseline_star_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/run_point2"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:src="@drawable/baseline_star_24"
+                    app:layout_constraintStart_toEndOf="@+id/run_point1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/run_point3"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:src="@drawable/unselect_star"
+                    app:layout_constraintStart_toEndOf="@+id/run_point2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.80" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.20" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvDistance"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/consRating" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistance"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/distance"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view2"
+                app:layout_constraintStart_toEndOf="@+id/view1"
+                app:layout_constraintTop_toTopOf="@+id/view1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistanceValue"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.distance) + ` km`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDistance"
+                app:layout_constraintStart_toStartOf="@+id/tvDistance"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistance"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvLenght"
+                app:layout_constraintStart_toEndOf="@+id/tvDistance"
+                app:layout_constraintTop_toTopOf="@+id/view1" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenght"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/time"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view3"
+                app:layout_constraintStart_toEndOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenghtValue"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.durationInMin) + ` min`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvLenght"
+                app:layout_constraintStart_toStartOf="@+id/tvLenght"
+                app:layout_constraintTop_toBottomOf="@+id/tvLenght"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvAverage"
+                app:layout_constraintStart_toEndOf="@+id/tvLenght"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAverage"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/average_pace"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view4"
+                app:layout_constraintStart_toEndOf="@+id/view3"
+                app:layout_constraintTop_toTopOf="@+id/view3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAverageValue"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.speed) + `/km`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvAverage"
+                app:layout_constraintStart_toStartOf="@+id/tvAverage"
+                app:layout_constraintTop_toBottomOf="@+id/tvAverage"
+                app:textAllCaps="true" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toEndOf="@+id/tvAverage"
+                app:layout_constraintTop_toTopOf="@+id/view3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/view1">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWatchReplay"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_bg"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="WATCH REPLAY"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvContinue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvContinue"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/corner_radius_10"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="Continue"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvWatchReplay"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--run pause -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consPause"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_overlay"
+            android:elevation="@dimen/_20sdp"
+            android:visibility="gone"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRunPause"
+                style="@style/TextView.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_80sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/do_you_really_want_to_give_up"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_26ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEndPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.80" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStartPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.20" />
+
+            <View
+                android:id="@+id/view1Pause"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvDistancePause"
+                app:layout_constraintStart_toStartOf="@id/guidelineStartPause"
+                app:layout_constraintTop_toBottomOf="@+id/tvRunPause" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistancePause"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/distance"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view2Pause"
+                app:layout_constraintStart_toEndOf="@+id/view1Pause"
+                app:layout_constraintTop_toTopOf="@+id/view1Pause" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistanceValuePause"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.distance) + ` km`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDistancePause"
+                app:layout_constraintStart_toStartOf="@+id/tvDistancePause"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistancePause"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view2Pause"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvLenghtPause"
+                app:layout_constraintStart_toEndOf="@+id/tvDistancePause"
+                app:layout_constraintTop_toTopOf="@+id/view1Pause" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenghtPause"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/time"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view3Pause"
+                app:layout_constraintStart_toEndOf="@+id/view2Pause"
+                app:layout_constraintTop_toTopOf="@+id/view2Pause" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenghtValuePause"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.durationInMin) + ` min`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvLenghtPause"
+                app:layout_constraintStart_toStartOf="@+id/tvLenghtPause"
+                app:layout_constraintTop_toBottomOf="@+id/tvLenghtPause"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view3Pause"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvAveragePause"
+                app:layout_constraintStart_toEndOf="@+id/tvLenghtPause"
+                app:layout_constraintTop_toTopOf="@+id/view2Pause" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAveragePause"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/average_pace"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view4Pause"
+                app:layout_constraintStart_toEndOf="@+id/view3Pause"
+                app:layout_constraintTop_toTopOf="@+id/view3Pause" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAverageValuePause"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.speed) + `/km`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvAveragePause"
+                app:layout_constraintStart_toStartOf="@+id/tvAveragePause"
+                app:layout_constraintTop_toBottomOf="@+id/tvAveragePause"
+                app:textAllCaps="true" />
+
+            <View
+                android:id="@+id/view4Pause"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndPause"
+                app:layout_constraintStart_toEndOf="@+id/tvAveragePause"
+                app:layout_constraintTop_toTopOf="@+id/view3Pause" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndPause"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStartPause"
+                app:layout_constraintTop_toBottomOf="@+id/view1Pause">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvResume"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_bg"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="resume (9)"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvGiveUp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvGiveUp"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/corner_radius_10"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="give up"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvResume"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Exit dialog-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consExit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_overlay"
+            android:elevation="@dimen/_20sdp"
+            android:visibility="gone"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRunExit"
+                style="@style/TextView.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_80sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/do_you_really_want_to_give_up"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_26ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEndExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.80" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStartExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.20" />
+
+            <!--<View
+                android:id="@+id/view1Exit"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvDistanceExit"
+                app:layout_constraintStart_toStartOf="@id/guidelineStartExit"
+                app:layout_constraintTop_toBottomOf="@+id/tvRunExit" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistanceExit"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/distance"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view2Exit"
+                app:layout_constraintStart_toEndOf="@+id/view1Exit"
+                app:layout_constraintTop_toTopOf="@+id/view1Exit" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistanceValueExit"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDistanceExit"
+                app:layout_constraintStart_toStartOf="@+id/tvDistanceExit"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistanceExit"
+                app:textAllCaps="true" />
+            <View
+                android:id="@+id/view2Exit"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvLenghtExit"
+                app:layout_constraintStart_toEndOf="@+id/tvDistanceExit"
+                app:layout_constraintTop_toTopOf="@+id/view1Exit" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenghtExit"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/time"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view3Exit"
+                app:layout_constraintStart_toEndOf="@+id/view2Exit"
+                app:layout_constraintTop_toTopOf="@+id/view2Exit" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenghtValueExit"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.durationInMin) + ` min`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvLenghtExit"
+                app:layout_constraintStart_toStartOf="@+id/tvLenghtExit"
+                app:layout_constraintTop_toBottomOf="@+id/tvLenghtExit"
+                app:textAllCaps="true" />
+            <View
+                android:id="@+id/view3Exit"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvAverageExit"
+                app:layout_constraintStart_toEndOf="@+id/tvLenghtExit"
+                app:layout_constraintTop_toTopOf="@+id/view2Exit" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAverageExit"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/average_pace"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view4Exit"
+                app:layout_constraintStart_toEndOf="@+id/view3Exit"
+                app:layout_constraintTop_toTopOf="@+id/view3Exit" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAverageValueExit"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.speed) + `/km`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvAverageExit"
+                app:layout_constraintStart_toStartOf="@+id/tvAverageExit"
+                app:layout_constraintTop_toBottomOf="@+id/tvAverageExit"
+                app:textAllCaps="true" />
+            <View
+                android:id="@+id/view4Exit"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndExit"
+                app:layout_constraintStart_toEndOf="@+id/tvAverageExit"
+                app:layout_constraintTop_toTopOf="@+id/view3Exit" />-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndExit"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStartExit"
+                app:layout_constraintTop_toBottomOf="@+id/tvRunExit" >
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvExitNO"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_bg"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="@string/no"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvExitYes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvExitYes"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/corner_radius_10"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="@string/yes"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvExitNO"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--<androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bgImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="-30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/free_run_bg"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />-->
+
+        <!-- Player View -->
+        <!--<androidx.media3.ui.PlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:resize_mode="fill"
+            app:use_controller="false" />-->
+
+
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            app:resize_mode="fill"
+            app:use_controller="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cl_progress"
+            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/black"
+            android:paddingBottom="@dimen/_5sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player_view">
+
+            <com.primal.runs.utils.CustomProgressBar
+                android:id="@+id/customProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <FrameLayout
+                android:id="@+id/frameAgeLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/customProgressBar">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/animal_label"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    >
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="start"
+                        app:shapeAppearance="@style/LabeledBottomShape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/iv_animal"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_animal"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="start"
+                        app:shapeAppearance="@style/LabeledShape"
+                        android:src="@drawable/dummy_elephant"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="@dimen/_2sdp"
+                        android:padding="@dimen/_2sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/user_label"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+
+                    >
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+
+                        app:shapeAppearance="@style/LabeledBottomShape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/iv_user"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_user"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="start"
+                        app:shapeAppearance="@style/LabeledShape"
+                        android:src="@drawable/dummy"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="@dimen/_2sdp"
+                        android:padding="@dimen/_2sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <!-- <androidx.appcompat.widget.AppCompatImageView
+                     android:id="@+id/animal_label"
+                     android:layout_width="40dp"
+                     android:layout_height="40dp"
+                     android:layout_gravity="start"
+                     android:background="@drawable/bg_progress_label"
+
+                     app:layout_constraintBottom_toTopOf="@+id/progress"
+                     app:layout_constraintStart_toStartOf="parent"
+                     />
+
+                 <androidx.appcompat.widget.AppCompatImageView
+                     android:id="@+id/user_label"
+                     android:layout_width="40dp"
+                     android:layout_height="40dp"
+                     android:layout_gravity="start"
+                     android:background="@drawable/bg_progress_label"
+
+                     app:layout_constraintBottom_toTopOf="@+id/progress"
+                     app:layout_constraintEnd_toEndOf="parent" />-->
+            </FrameLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- GIF ImageView Man -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMan"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_marginStart="@dimen/_100sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iv_man_run"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <!-- GIF ImageView Elephant -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivElephant"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_180sdp"
+            android:layout_marginBottom="-50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iv_elephant_run"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/_50sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivMan" />
+
+        <!--run failed -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consFailed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_overlay"
+            android:visibility="gone">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRunFailed"
+                style="@style/TextView.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_80sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="STAGE 1-1 failed"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_26ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/consRatingFailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndPauseFailed"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStartPauseFailed"
+                app:layout_constraintTop_toBottomOf="@+id/tvRunFailed">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/failedRunFav1"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:src="@drawable/baseline_star_24"
+                    android:tint="@color/rating"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/failedRunFav2"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:src="@drawable/baseline_star_24"
+                    android:tint="@color/rating"
+                    app:layout_constraintStart_toEndOf="@+id/failedRunFav1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/failedRunFav3"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:src="@drawable/baseline_star_24"
+                    android:tint="@color/rating"
+                    app:layout_constraintStart_toEndOf="@+id/failedRunFav2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEndPauseFailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.80" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStartPauseFailed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"
+                app:layout_constraintGuide_percent="0.20" />
+
+            <View
+                android:id="@+id/view1PauseFailed"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvDistancePauseFailed"
+                app:layout_constraintStart_toStartOf="@id/guidelineStartPauseFailed"
+                app:layout_constraintTop_toBottomOf="@+id/consRatingFailed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistancePauseFailed"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/distance"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view2PauseFailed"
+                app:layout_constraintStart_toEndOf="@+id/view1PauseFailed"
+                app:layout_constraintTop_toTopOf="@+id/view1PauseFailed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDistanceValuePauseFailed"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.distance) + `km`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDistancePauseFailed"
+                app:layout_constraintStart_toStartOf="@+id/tvDistancePauseFailed"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistancePauseFailed"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view2PauseFailed"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvLenghtPauseFailed"
+                app:layout_constraintStart_toEndOf="@+id/tvDistancePauseFailed"
+                app:layout_constraintTop_toTopOf="@+id/view1PauseFailed" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenghtPauseFailed"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/time"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view3Failed"
+                app:layout_constraintStart_toEndOf="@+id/view2PauseFailed"
+                app:layout_constraintTop_toTopOf="@+id/view2PauseFailed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLenghtValueFailed"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.durationInMin) + `min`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvLenghtPauseFailed"
+                app:layout_constraintStart_toStartOf="@+id/tvLenghtPauseFailed"
+                app:layout_constraintTop_toBottomOf="@+id/tvLenghtPauseFailed"
+                app:textAllCaps="true" />
+
+
+            <View
+                android:id="@+id/view3Failed"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/tvAverageFailed"
+                app:layout_constraintStart_toEndOf="@+id/tvLenghtPauseFailed"
+                app:layout_constraintTop_toTopOf="@+id/view2PauseFailed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAverageFailed"
+                style="@style/TextView.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/average_pace"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/view4Failed"
+                app:layout_constraintStart_toEndOf="@+id/view3Failed"
+                app:layout_constraintTop_toTopOf="@+id/view3Failed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAverageValueFailed"
+                style="@style/TextView.FuturaBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{String.valueOf(bean.speed) + `/km`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvAverageFailed"
+                app:layout_constraintStart_toStartOf="@+id/tvAverageFailed"
+                app:layout_constraintTop_toBottomOf="@+id/tvAverageFailed"
+                app:textAllCaps="true" />
+
+            <View
+                android:id="@+id/view4Failed"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:alpha="0.8"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndPauseFailed"
+                app:layout_constraintStart_toEndOf="@+id/tvAverageFailed"
+                app:layout_constraintTop_toTopOf="@+id/view3Failed" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineEndPauseFailed"
+                app:layout_constraintStart_toStartOf="@+id/guidelineStartPauseFailed"
+                app:layout_constraintTop_toBottomOf="@+id/view1PauseFailed">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWatchReplayFailed"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_bg"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="WATCH REPLAY"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvGiveUpFailed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvGiveUpFailed"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/give_up_bg"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="give up"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvReviveFailed"
+                    app:layout_constraintStart_toEndOf="@+id/tvWatchReplayFailed"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvReviveFailed"
+                    style="@style/TextView.FuturaBold"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/corner_radius_10"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{v ->vm.onClick(v)}"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="give up"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvGiveUpFailed"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textAllCaps="true" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Player View -->
+        <!--<androidx.media3.ui.PlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:resize_mode="fill"
+            app:use_controller="false" />-->
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSpeed"
+            style="@style/TextView.Heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="00"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_18ssp"
+            android:textColor="#A9FFFFFF"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/consTopTimeVisible" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDistanceUser"
+            style="@style/TextView.Heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="00"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_18ssp"
+            android:textColor="#A9FFFFFF"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/consTopTimeVisible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDistanceAnimal"
+            style="@style/TextView.Heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="Dist cover by Animal 00"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_18ssp"
+            android:textColor="#A9FFFFFF"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDistanceUser" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

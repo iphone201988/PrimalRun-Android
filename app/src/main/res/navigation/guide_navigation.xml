@@ -1,0 +1,69 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/guide_navigation"
+    tools:ignore="InvalidNavigation">
+
+    <action
+        android:id="@+id/navigateToGuide1Fragment"
+        app:destination="@id/fragmentGuide1" />
+
+    <action
+        android:id="@+id/navigateToGuide2Fragment"
+        app:destination="@id/fragmentGuide2" />
+
+    <action
+        android:id="@+id/navigateToGuide3Fragment"
+        app:destination="@id/fragmentGuide3" />
+    <action
+        android:id="@+id/navigateToGuide4Fragment"
+        app:destination="@id/fragmentGuide4" />
+    <action
+        android:id="@+id/navigateToGuide5Fragment"
+        app:destination="@id/fragmentGuide5" />
+
+    <action
+        android:id="@+id/navigateToGuide6Fragment"
+        app:destination="@id/fragmentGuide6" />
+
+    <action
+        android:id="@+id/navigateToGuide7Fragment"
+        app:destination="@id/fragmentGuide7" />
+
+
+    <fragment
+        android:id="@+id/fragmentGuide1"
+        android:name="com.primal.runs.ui.guide.Guide1Fragment"
+        tools:layout="@layout/fragment_guide1" />
+
+    <fragment
+        android:id="@+id/fragmentGuide2"
+        android:name="com.primal.runs.ui.guide.Guide2Fragment"
+        tools:layout="@layout/fragment_guide2" />
+    <fragment
+        android:id="@+id/fragmentGuide3"
+        android:name="com.primal.runs.ui.guide.Guide3Fragment"
+        tools:layout="@layout/fragment_guide3" />
+
+    <fragment
+        android:id="@+id/fragmentGuide4"
+        android:name="com.primal.runs.ui.guide.Guide4Fragment"
+        tools:layout="@layout/fragment_guide4" />
+
+    <fragment
+        android:id="@+id/fragmentGuide5"
+        android:name="com.primal.runs.ui.guide.Guide5Fragment"
+        tools:layout="@layout/fragment_guide5" />
+
+    <fragment
+        android:id="@+id/fragmentGuide6"
+        android:name="com.primal.runs.ui.guide.Guide6Fragment"
+        tools:layout="@layout/fragment_guide6" />
+
+    <fragment
+        android:id="@+id/fragmentGuide7"
+        android:name="com.primal.runs.ui.guide.Guide7Fragment"
+        tools:layout="@layout/fragment_guide7" />
+
+
+</navigation>

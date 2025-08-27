@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.primal.runs.ui.running_track.RunTrackVm" />
+
+        <variable
+            name="bean"
+            type="com.primal.runs.data.model.FreeRunModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.running_track.PreviewFreeRunActivity">
+
+            <!-- <androidx.appcompat.widget.AppCompatImageView
+                 android:id="@+id/bgImage"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_marginBottom="-30dp"
+                 android:scaleType="centerCrop"
+                 android:src="@drawable/free_run_bg"
+
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent" />-->
+
+            <androidx.media3.ui.PlayerView
+                android:id="@+id/player_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:resize_mode="fill"
+                app:use_controller="false" />
+
+            <!-- GIF ImageView Man -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMan"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iv_man_run"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivElephant"
+                />
+
+
+            <!-- GIF ImageView Elephant -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivElephant"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginBottom="-50dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iv_elephant_run"
+                android:layout_marginEnd="@dimen/_50sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,45 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_navigation"
+    tools:ignore="InvalidNavigation">
+
+    <action
+        android:id="@+id/navigateToLoginFragment"
+        app:destination="@id/fragmentLogin" />
+
+    <action
+        android:id="@+id/navigateToPolicyFragment"
+        app:destination="@id/fragmentPolicy" />
+
+    <action
+        android:id="@+id/navigateToGenderFragment"
+        app:destination="@id/fragmentGender" />
+
+    <action
+        android:id="@+id/navigateToGpsFragment"
+        app:destination="@id/fragmentGps" />
+
+
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.primal.runs.ui.auth.login.LoginFragment"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/fragmentPolicy"
+        android:name="com.primal.runs.ui.auth.policy.PolicyFragment"
+        tools:layout="@layout/fragment_policy" />
+
+    <fragment
+        android:id="@+id/fragmentGender"
+        android:name="com.primal.runs.ui.auth.gender.SelectGenderFragment"
+        tools:layout="@layout/fragment_select_gender" />
+
+    <fragment
+        android:id="@+id/fragmentGps"
+        android:name="com.primal.runs.ui.auth.gps.GpsEnableFragment"
+        tools:layout="@layout/fragment_gps_enable" />
+
+
+</navigation>

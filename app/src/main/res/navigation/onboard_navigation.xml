@@ -1,0 +1,37 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onboard_navigation"
+    tools:ignore="InvalidNavigation">
+
+    <action
+        android:id="@+id/navigateToOnBoardFirstFragment"
+        app:destination="@id/fragmentBoardFirstFragment" />
+
+    <action
+        android:id="@+id/navigateToOnBoardSecondFragment"
+        app:destination="@id/fragmentBoardSecondFragment" />
+
+    <action
+        android:id="@+id/navigateToOnBoardThirdFragment"
+        app:destination="@id/fragmentBoardThirdFragment" />
+
+
+    <fragment
+        android:id="@+id/fragmentBoardFirstFragment"
+        android:name="com.primal.runs.ui.onboarding.OnBoardFirstFragment"
+        tools:layout="@layout/fragment_on_board_first" />
+
+
+
+    <fragment
+        android:id="@+id/fragmentBoardSecondFragment"
+        android:name="com.primal.runs.ui.onboarding.OnBoardSecondFragment"
+        tools:layout="@layout/fragment_on_board_second" />
+
+    <fragment
+        android:id="@+id/fragmentBoardThirdFragment"
+        android:name="com.primal.runs.ui.onboarding.OnBoardThirdFragment"
+        tools:layout="@layout/fragment_on_board_third" />
+
+</navigation>
